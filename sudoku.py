@@ -19,9 +19,9 @@ class Sudoku:
             self.row.append(np.unique(self.data[i,:]).tolist())
             self.col.append(np.unique(self.data[:,i]).tolist())
             self.blk.append(np.unique(self.data[int(3*int(i/3)):int(3*int(i/3+1)), int(3*(i%3)):int(3*int(i%3+1))]).tolist())
-        print(self.row)
-        print(self.col)
-        print(self.blk)
+        # print(self.row)
+        # print(self.col)
+        # print(self.blk)
 
     def update_conditions(self):
         for i in range(9):
@@ -100,7 +100,7 @@ class SudokuSolver(Sudoku):
 def test():
     ss = SudokuSolver()
 
-    print("simple question test")
+    print("question template")
     test_data = np.asarray([
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -114,12 +114,15 @@ def test():
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
     ])
+    print(test_data)
     ss.init_by_data(test_data)
     t_start = time.time()
     ss.solve()
     t_end = time.time()
-    print("using time = ", t_end - t_start)
+    print("answer")
     print(ss.data)
+    print("using time = ", t_end - t_start)
+    print("")
     # input("input any word to continue")
 
     print("simple question in WiKi")
@@ -136,13 +139,16 @@ def test():
         [0, 0, 0, 4, 1, 9, 0, 0, 5],
         [0, 0, 0, 0, 8, 0, 0, 7, 9],
     ])
+    print(test_data)
     ss.init_by_data(test_data)
 
     t_start = time.time()
     ss.solve()
     t_end = time.time()
-    print("using time = ", t_end - t_start)
+    print("answer")
     print(ss.data)
+    print("using time = ", t_end - t_start)
+    print("")
 
     print("random question")
     test_data = np.asarray([
@@ -158,13 +164,16 @@ def test():
         [0, 0, 6, 0, 1, 0, 0, 0, 5],
         [0, 0, 0, 4, 0, 0, 0, 3, 0],
     ])
+    print(test_data)
     ss.init_by_data(test_data)
 
     t_start = time.time()
     ss.solve()
     t_end = time.time()
-    print("using time = ", t_end - t_start)
+    print("answer")
     print(ss.data)
+    print("using time = ", t_end - t_start)
+    print("")
 
     print("The hardest question in this world")
     test_data = np.asarray([
@@ -181,12 +190,15 @@ def test():
         [0, 9, 0, 0, 0, 0, 4, 0, 0],
     ])
 
+    print(test_data)
     ss.init_by_data(test_data)
     t_start = time.time()
     ss.solve()
     t_end = time.time()
-    print("using time = ", t_end - t_start)
+    print("answer")
     print(ss.data)
+    print("using time = ", t_end - t_start)
+    print("")
 
 
 if __name__ == '__main__':
