@@ -227,10 +227,13 @@ def test_gen(mask_rate):
         sg.init_by_data(test_data)
         print("generate question fail... regenerate again")
 
-    draw(sg.gen_data)
+    img = draw(sg.gen_data)
+    ans = draw(sg.data)
+    cv2.imwrite("sudoku.png", img)
+    cv2.imwrite("sudoku_ans.png", ans)
 
 
-def draw(data):
+def draw(data, show_flag=False):
     blank_size = 50
     img_size = blank_size * 9
     img = np.zeros((img_size, img_size, 3), np.uint8) + 255
@@ -253,8 +256,11 @@ def draw(data):
             content = str(data[i,j])
             cv2.putText(img, content, (x, y), font, 1.2, (0, 0, 0), 2, cv2.LINE_AA)
 
-    cv2.imshow("test", img)
-    cv2.waitKey()
+    if show_flag:
+        cv2.imshow("test", img)
+        cv2.waitKey()
+
+    return img
 
 
 if __name__ == '__main__':
