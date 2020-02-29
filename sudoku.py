@@ -229,8 +229,8 @@ def test_gen(mask_rate):
 
     img = draw(sg.gen_data)
     ans = draw(sg.data)
-    cv2.imwrite("sudoku.png", img)
-    cv2.imwrite("sudoku_ans.png", ans)
+    cv2.imwrite("result/sudoku.png", img)
+    cv2.imwrite("result/sudoku_ans.png", ans)
 
 
 def draw(data, show_flag=False):

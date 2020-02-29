@@ -53,8 +53,8 @@ using time =  29.457792043685913
 ## Generation  
 產生題目及解答
 使用 config.ini 設定 mask_rate  
-![alt text](sudoku.png)
-![alt text](sudoku_ans.png)
+![alt text](result/sudoku.png)
+![alt text](result/sudoku_ans.png)
 
 # TODO
 1. 更快的解法
